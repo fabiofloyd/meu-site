@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Diferença de Datas</title>
+</head>
+<body>
+    <h1>Calculadora de Diferença de Datas</h1>
+    <form id="dateForm">
+        <label for="date1">Data 1:</label>
+        <input type="date" id="date1" name="date1" required>
+        <br><br>
+        <label for="date2">Data 2:</label>
+        <input type="date" id="date2" name="date2" required>
+        <br><br>
+        <button type="button" onclick="calculateDateDifference()">Calcular Diferença</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function calculateDateDifference() {
+            const date1 = new Date(document.getElementById("date1").value);
+            const date2 = new Date(document.getElementById("date2").value);
+            const timeDifference = Math.abs(date2 - date1);
+            const dayDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+            
+            document.getElementById("result").textContent = `A diferença é de ${dayDifference} dia(s).`;
+        }
+    </script>
+</body>
+</html>
